@@ -1,0 +1,8 @@
+*.exe
+.vscode/
+
+[Bb]in
+[Dd]ebug
+[Dd]ebugger
+.vs/
+[Ii]gnore*/

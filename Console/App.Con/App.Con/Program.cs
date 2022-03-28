@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,8 +10,85 @@ namespace App.Con
         public static void Main()
         {
             //Basic();
-
+            ifElse();
             Console.ReadLine();
+        }
+
+        //control statements
+        private static void ifElse()
+        {
+            Console.WriteLine("Enter a number");
+            var num = Convert.ToInt32(Console.ReadLine());
+            if (num == 1)
+            {
+                Console.WriteLine("Sunday");
+            }
+            else if (num == 2)
+            {
+                Console.WriteLine("Monday");
+            }
+            else if (num == 3)
+            {
+                Console.WriteLine("Tuesday");
+            }
+            else if (num == 4)
+            {
+                Console.WriteLine("Wednesday");
+            }
+            else if (num == 5)
+            {
+                Console.WriteLine("Thursday");
+            }
+            else if (num == 6)
+            {
+                Console.WriteLine("Friday");
+            }
+            else if (num == 7)
+            {
+                Console.WriteLine("Saturday");
+            }
+            else
+            {
+                Console.WriteLine("Not a valid day");
+            }
+
+            switch (num)
+            {
+                case 1:
+                    Console.WriteLine("Sunday");
+                    break;
+
+                case 2:
+                    Console.WriteLine("Monday");
+                    break;
+
+                case 3:
+                    Console.WriteLine("Tuesday");
+                    break;
+
+                case 4:
+                    Console.WriteLine("Wednesday");
+                    break;
+
+                case 5:
+                    Console.WriteLine("Thursday");
+                    break;
+
+                case 6:
+                    Console.WriteLine("Friday");
+                    break;
+
+                case 7:
+                    Console.WriteLine("Saturday");
+                    break;
+
+                case 8:
+                    Console.WriteLine("Noa a valid day");
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private static void Operators()
@@ -20,6 +96,24 @@ namespace App.Con
             //arithmetic operators
             //+ ,-, *, /, %
         }
+
+        private static void Array()
+        {
+            //collection of similar data types
+            int[] i = new int[5];
+            //index 0 to 4
+            i[0] = 10;
+            i[1] = 20;
+            i[2] = 25;
+            i[3] = 53;
+            i[4] = 43;
+
+            string[] str = new string[i[0]];
+
+            string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+        }
+
+        private const float pi = 3.1415f;
 
         private static void Casting()
         {
@@ -44,6 +138,19 @@ namespace App.Con
             i = Convert.ToInt32(s);
             c = Convert.ToChar(s);
             i = int.Parse(s);
+            int i1 = 10;
+            int _2i = 20;
+            //object type
+            object o = 1234;
+            i = Convert.ToInt32(o);
+
+            var a = 10m;
+            a = 9m;
+            var b = "";
+
+            object o1 = 10m;
+            o1 = "";
+            object o2 = "";
         }
 
         private static void DataTypes()

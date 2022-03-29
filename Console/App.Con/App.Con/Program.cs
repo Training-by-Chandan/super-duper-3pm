@@ -9,9 +9,52 @@ namespace App.Con
     {
         public static void Main()
         {
-            //Basic();
-            ifElse();
+            var res = "N";
+            do
+            {
+                Console.Clear();
+                //Basic();
+                ifElse();
+
+                Console.WriteLine("Do you want to continue more? (y/n)");
+                res = Console.ReadLine();
+            } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        //looping
+        private static void Looping()
+        {
+            //do while
+            //infinite loop
+            int j = 0;
+            do
+            {
+                j++;
+            } while (j <= 10);
+            //while
+            int i = 0;
+            while (i <= 10)
+            {
+            }
+            //for
+            //for (int x = 0; x<5; x++)
+            //{
+            //}
+            //for (int x = 0; x < 10;)
+            //{
+            //}
+            //for (; ; )
+            //{
+            //}
+            //foreach
+            string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Holiday" };
+            for (int x = 0; x < days.Length; x++)
+            {
+            }
+            foreach (var item in days)
+            {
+            }
         }
 
         private static void SwitchCase()

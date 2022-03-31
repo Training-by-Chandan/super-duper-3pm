@@ -17,12 +17,43 @@ namespace App.Con
                 //ifElse();
                 //Looping();
                 //ArrayExample();
-                StructExample();
+                //StructExample();
+                StringConcatenation();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void StringConcatenation()
+        {
+            string name = "Sailesh";
+            string address = "Ktm";
+            string email = "Sailesh@gmail.com";
+
+            //1. Basic
+            Console.WriteLine("\n=====================\nUsing Basic Concatenation");
+            string result1 = "Name = " + name + "\nAddress = " + address + " " + email;
+            Console.WriteLine(result1);
+
+            //2. String formatting
+            Console.WriteLine("\n=====================\nUsing String formatting");
+            string result2 = string.Format("Name = {0},\nAddress = {1},\nEmail = {2}", name, address, email);
+            Console.WriteLine(result2);
+
+            //3. String interpolation
+            Console.WriteLine("\n=====================\nUsing String Interpolation");
+            string result3 = $"Name = {name}\nAddress = {address}\nEmail = {email}";
+            Console.WriteLine(result3);
+
+            //4. String Builder
+            Console.WriteLine("\n=====================\nUsing String Builder");
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+            sb.AppendLine("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+            sb.AppendLine("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+            Console.WriteLine(sb.ToString());
         }
 
         private static void StructExample()

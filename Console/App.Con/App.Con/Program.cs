@@ -5,6 +5,11 @@ using System.Threading.Tasks;
 
 namespace App.Con
 {
+    public interface Itest
+    {
+        int functionOne();
+    }
+
     public class Program
     {
         public static void Main()
@@ -14,12 +19,27 @@ namespace App.Con
             {
                 Console.Clear();
                 //Basic();
-                ifElse();
-
+                //ifElse();
+                //Looping();
+                ArrayExample();
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void ArrayExample()
+        {
+            string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Holiday" };
+            Console.WriteLine(string.Join(" & ", days));
+            //Console.WriteLine(days.Length);
+            //Array.Resize(ref days, 5);
+            //Console.WriteLine(days.Length);
+
+            //Array.Sort(days);
+            //Array.Reverse(days);
+
+            //Array.Clear(days,0,days.Length);
         }
 
         //looping
@@ -27,17 +47,17 @@ namespace App.Con
         {
             //do while
             //infinite loop
-            int j = 0;
-            do
-            {
-                j++;
-            } while (j <= 10);
-            //while
-            int i = 0;
-            while (i <= 10)
-            {
-            }
-            //for
+            //int j = 0;
+            //do
+            //{
+            //    j++;
+            //} while (j <= 10);
+            ////while
+            //int i = 0;
+            //while (i <= 10)
+            //{
+            //}
+            ////for
             //for (int x = 0; x<5; x++)
             //{
             //}
@@ -48,12 +68,22 @@ namespace App.Con
             //{
             //}
             //foreach
-            string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Holiday" };
-            for (int x = 0; x < days.Length; x++)
+            //string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Holiday" };
+            //for (int x = 0; x < days.Length; x++)
+            //{
+            //    Console.WriteLine(days[x]);
+            //}
+            //foreach (var item in days)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //break and continue
+            for (int i = 0; i < 10; i++)
             {
-            }
-            foreach (var item in days)
-            {
+                if (i == 5) continue;
+
+                Console.WriteLine(i);
             }
         }
 
@@ -146,7 +176,7 @@ namespace App.Con
             //+ ,-, *, /, %
         }
 
-        private static void Array()
+        private static void Arrays()
         {
             //collection of similar data types
             int[] i = new int[5];

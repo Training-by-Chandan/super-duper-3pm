@@ -18,12 +18,24 @@ namespace App.Con
                 //Looping();
                 //ArrayExample();
                 //StructExample();
-                StringConcatenation();
-
+                //StringConcatenation();
+                ClassAndObjects();
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void ClassAndObjects()
+        {
+            //Class : Blueprint / Designs / Specifications
+            //Objects : Instance of Class
+            HumanBeing samir = new HumanBeing();
+            HumanBeing sailesh = new HumanBeing();
+            samir.DisplayIdentity();
+            sailesh.DisplayIdentity();
+            samir.Eat();
+            sailesh.Eat();
         }
 
         private static void StringConcatenation()
@@ -299,27 +311,6 @@ namespace App.Con
             string str = Console.ReadLine();
             Console.WriteLine("You have pressed " + str);
             Console.Clear();
-        }
-    }
-
-    public struct StudentStruct
-    {
-        public string Name;
-        public string Address;
-        public string Email;
-
-        public StudentStruct(string name, string address, string email)
-        {
-            Name = name;
-            Address = address;
-            Email = email;
-        }
-
-        public void Clear()
-        {
-            Name = string.Empty;
-            Address = string.Empty;
-            Email = string.Empty;
         }
     }
 }

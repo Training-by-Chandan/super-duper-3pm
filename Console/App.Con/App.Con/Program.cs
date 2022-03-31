@@ -5,11 +5,6 @@ using System.Threading.Tasks;
 
 namespace App.Con
 {
-    public interface Itest
-    {
-        int functionOne();
-    }
-
     public class Program
     {
         public static void Main()
@@ -21,11 +16,21 @@ namespace App.Con
                 //Basic();
                 //ifElse();
                 //Looping();
-                ArrayExample();
+                //ArrayExample();
+                StructExample();
+
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void StructExample()
+        {
+            StudentStruct s1 = new StudentStruct("Sailesh", "Ktm", "sailesh@gmail.com");
+            StudentStruct s2 = new StudentStruct();
+            Console.WriteLine(s1.Name + " => " + s1.Address + " => " + s1.Email);
+            Console.WriteLine(s2.Name + " => " + s2.Address + " => " + s2.Email);
         }
 
         private static void ArrayExample()
@@ -263,6 +268,27 @@ namespace App.Con
             string str = Console.ReadLine();
             Console.WriteLine("You have pressed " + str);
             Console.Clear();
+        }
+    }
+
+    public struct StudentStruct
+    {
+        public string Name;
+        public string Address;
+        public string Email;
+
+        public StudentStruct(string name, string address, string email)
+        {
+            Name = name;
+            Address = address;
+            Email = email;
+        }
+
+        public void Clear()
+        {
+            Name = string.Empty;
+            Address = string.Empty;
+            Email = string.Empty;
         }
     }
 }

@@ -19,23 +19,52 @@ namespace App.Con
                 //ArrayExample();
                 //StructExample();
                 //StringConcatenation();
-                ClassAndObjects();
+                //ClassAndObjects();
+                ClassAndObjectsV2();
+
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
         }
 
+        private static void ClassAndObjectsV2()
+        {
+            StudentInfo s1 = new StudentInfo("Samir", "", "Maharjan");
+            StudentInfo s2 = new StudentInfo("Sailesh", "Raj", "Aryal");
+
+            s1.ScienceMarks = 300.56f;
+            s1.MathMarks = 80.23f;
+            Console.WriteLine($"{s1.FullName}\nScience Marks : {s1.ScienceMarks}\nMath Marks : {s1.MathMarks}\nTotal : {s1.Total}\nPercentage : {s1.Percentage}%\nDivision : {s1.Division}");
+            s1.ScienceMarks = 50;
+            Console.WriteLine("\n\nAfter changign marks of science\n\n");
+            Console.WriteLine($"{s1.FullName}\nScience Marks : {s1.ScienceMarks}\nMath Marks : {s1.MathMarks}\nTotal : {s1.Total}\nPercentage : {s1.Percentage}%\nDivision : {s1.Division}");
+            Console.WriteLine(s1.MathMarks);
+            //Console.WriteLine(s1.FullName);
+            //Console.WriteLine(s2.FullName);
+        }
+
         private static void ClassAndObjects()
         {
             //Class : Blueprint / Designs / Specifications
             //Objects : Instance of Class
-            HumanBeing samir = new HumanBeing();
+
+            HumanBeing samir = new HumanBeing("Samir");
             HumanBeing sailesh = new HumanBeing();
+
+            Console.WriteLine(samir.FirstName);
+            samir.FirstName = "Samir Maharjan";
+            Console.WriteLine(samir.FirstName);
+
+            Console.WriteLine(sailesh.FirstName);
+            sailesh.FirstName = "Sailesh Aryal";
+            Console.WriteLine(sailesh.FirstName);
+
             samir.DisplayIdentity();
             sailesh.DisplayIdentity();
-            samir.Eat();
-            sailesh.Eat();
+            //samir.Eat();
+            //sailesh.Eat();
+            sailesh.SetName("Saiesh");
         }
 
         private static void StringConcatenation()

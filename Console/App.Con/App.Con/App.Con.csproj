@@ -46,6 +46,7 @@
     <Compile Include="HumanBeing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentInfo.cs" />
     <Compile Include="StudentStruct.cs" />
   </ItemGroup>
   <ItemGroup>

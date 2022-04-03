@@ -14,7 +14,13 @@ namespace App.Con
             {
                 Console.Clear();
                 //Basic();
-                ifElse();
+                //ifElse();
+                //Looping();
+                //ArrayExample();
+                //StructExample();
+                //StringConcatenation();
+                //ClassAndObjects();
+                ClassAndObjectsV2();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -22,22 +28,113 @@ namespace App.Con
             Console.ReadLine();
         }
 
+        private static void ClassAndObjectsV2()
+        {
+            StudentInfo s1 = new StudentInfo("Samir", "", "Maharjan");
+            StudentInfo s2 = new StudentInfo("Sailesh", "Raj", "Aryal");
+
+            s1.ScienceMarks = 300.56f;
+            s1.MathMarks = 80.23f;
+            Console.WriteLine($"{s1.FullName}\nScience Marks : {s1.ScienceMarks}\nMath Marks : {s1.MathMarks}\nTotal : {s1.Total}\nPercentage : {s1.Percentage}%\nDivision : {s1.Division}");
+            s1.ScienceMarks = 50;
+            Console.WriteLine("\n\nAfter changign marks of science\n\n");
+            Console.WriteLine($"{s1.FullName}\nScience Marks : {s1.ScienceMarks}\nMath Marks : {s1.MathMarks}\nTotal : {s1.Total}\nPercentage : {s1.Percentage}%\nDivision : {s1.Division}");
+            Console.WriteLine(s1.MathMarks);
+            //Console.WriteLine(s1.FullName);
+            //Console.WriteLine(s2.FullName);
+        }
+
+        private static void ClassAndObjects()
+        {
+            //Class : Blueprint / Designs / Specifications
+            //Objects : Instance of Class
+
+            HumanBeing samir = new HumanBeing("Samir");
+            HumanBeing sailesh = new HumanBeing();
+
+            Console.WriteLine(samir.FirstName);
+            samir.FirstName = "Samir Maharjan";
+            Console.WriteLine(samir.FirstName);
+
+            Console.WriteLine(sailesh.FirstName);
+            sailesh.FirstName = "Sailesh Aryal";
+            Console.WriteLine(sailesh.FirstName);
+
+            samir.DisplayIdentity();
+            sailesh.DisplayIdentity();
+            //samir.Eat();
+            //sailesh.Eat();
+            sailesh.SetName("Saiesh");
+        }
+
+        private static void StringConcatenation()
+        {
+            string name = "Sailesh";
+            string address = "Ktm";
+            string email = "Sailesh@gmail.com";
+
+            //1. Basic
+            Console.WriteLine("\n=====================\nUsing Basic Concatenation");
+            string result1 = "Name = " + name + "\nAddress = " + address + " " + email;
+            Console.WriteLine(result1);
+
+            //2. String formatting
+            Console.WriteLine("\n=====================\nUsing String formatting");
+            string result2 = string.Format("Name = {0},\nAddress = {1},\nEmail = {2}", name, address, email);
+            Console.WriteLine(result2);
+
+            //3. String interpolation
+            Console.WriteLine("\n=====================\nUsing String Interpolation");
+            string result3 = $"Name = {name}\nAddress = {address}\nEmail = {email}";
+            Console.WriteLine(result3);
+
+            //4. String Builder
+            Console.WriteLine("\n=====================\nUsing String Builder");
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+            sb.AppendLine("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+            sb.AppendLine("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+            Console.WriteLine(sb.ToString());
+        }
+
+        private static void StructExample()
+        {
+            StudentStruct s1 = new StudentStruct("Sailesh", "Ktm", "sailesh@gmail.com");
+            StudentStruct s2 = new StudentStruct();
+            Console.WriteLine(s1.Name + " => " + s1.Address + " => " + s1.Email);
+            Console.WriteLine(s2.Name + " => " + s2.Address + " => " + s2.Email);
+        }
+
+        private static void ArrayExample()
+        {
+            string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Holiday" };
+            Console.WriteLine(string.Join(" & ", days));
+            //Console.WriteLine(days.Length);
+            //Array.Resize(ref days, 5);
+            //Console.WriteLine(days.Length);
+
+            //Array.Sort(days);
+            //Array.Reverse(days);
+
+            //Array.Clear(days,0,days.Length);
+        }
+
         //looping
         private static void Looping()
         {
             //do while
             //infinite loop
-            int j = 0;
-            do
-            {
-                j++;
-            } while (j <= 10);
-            //while
-            int i = 0;
-            while (i <= 10)
-            {
-            }
-            //for
+            //int j = 0;
+            //do
+            //{
+            //    j++;
+            //} while (j <= 10);
+            ////while
+            //int i = 0;
+            //while (i <= 10)
+            //{
+            //}
+            ////for
             //for (int x = 0; x<5; x++)
             //{
             //}
@@ -48,12 +145,22 @@ namespace App.Con
             //{
             //}
             //foreach
-            string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Holiday" };
-            for (int x = 0; x < days.Length; x++)
+            //string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Holiday" };
+            //for (int x = 0; x < days.Length; x++)
+            //{
+            //    Console.WriteLine(days[x]);
+            //}
+            //foreach (var item in days)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //break and continue
+            for (int i = 0; i < 10; i++)
             {
-            }
-            foreach (var item in days)
-            {
+                if (i == 5) continue;
+
+                Console.WriteLine(i);
             }
         }
 
@@ -146,7 +253,7 @@ namespace App.Con
             //+ ,-, *, /, %
         }
 
-        private static void Array()
+        private static void Arrays()
         {
             //collection of similar data types
             int[] i = new int[5];

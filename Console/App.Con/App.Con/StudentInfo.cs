@@ -6,14 +6,40 @@ namespace App.Con
     {
         public StudentInfo()
         {
+            _fullMarks = 100;
+            _passMarks = 32;
         }
 
         public StudentInfo(string firstname, string middlename, string lastname)
         {
+            _fullMarks = 100;
+            _passMarks = 32;
             FirstName = firstname;
             MiddleName = middlename;
             LastName = lastname;
         }
+
+        public StudentInfo(double fullmarks, double passmarks)
+        {
+            _fullMarks = fullmarks;
+            _passMarks = passmarks;
+        }
+
+        public StudentInfo(double fullmarks, double passmarks, string firstname, string middlename, string lastname)
+        {
+            _fullMarks = fullmarks;
+            _passMarks = passmarks;
+            FirstName = firstname;
+            MiddleName = middlename;
+            LastName = lastname;
+        }
+
+        private double _fullMarks;
+        public double FullMarks => _fullMarks;
+        private double _passMarks;
+        public double PassMarks => _passMarks;
+
+        public bool IsFailedInMinOneSubject => ScienceMarks < PassMarks || MathMarks < PassMarks;
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -37,9 +63,9 @@ namespace App.Con
             get { return _math; }
             set
             {
-                if (value > 100)
+                if (value > FullMarks)
                 {
-                    _math = 100;
+                    _math = (float)FullMarks;
                 }
                 else if (value < 0)
                 {
@@ -59,7 +85,7 @@ namespace App.Con
             get { return _science; }
             set
             {
-                _science = value > 100 ? 100 : value < 0 ? 0 : value;
+                _science = value > FullMarks ? (float)FullMarks : value < 0 ? 0 : value;
             }
         }
 
@@ -71,22 +97,34 @@ namespace App.Con
             }
         }
 
-        public float Percentage
+        public string Percentage
         {
             get
             {
-                return Total / 2;
+                return percentage.ToString("00.00") + " %";
             }
         }
+
+        private float percentage
+        {
+            get
+            {
+                return (float)((Total / (2 * FullMarks)) * 100);
+            }
+        }
+
+        //public string Div => Percentage >= 80 ? "Distinction" : Percentage >= 60 ? "First Division" : Percentage >= 45 ? "Second Division" : Percentage >= 32 ? "Third Division" : "Fail";
 
         public string Division
         {
             get
             {
-                if (Percentage > 80) return "Distinction";
-                else if (Percentage > 60) return "First Division";
-                else if (Percentage > 45) return "Second Division";
-                else if (Percentage > 32) return "Third Division";
+                if (IsFailedInMinOneSubject) return "Fail";
+
+                if (percentage >= 80) return "Distinction";
+                else if (percentage >= 60) return "First Division";
+                else if (percentage >= 45) return "Second Division";
+                else if (percentage >= 32) return "Third Division";
                 else return "Fail";
             }
         }

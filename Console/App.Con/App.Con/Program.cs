@@ -20,7 +20,8 @@ namespace App.Con
                 //StructExample();
                 //StringConcatenation();
                 //ClassAndObjects();
-                ClassAndObjectsV2();
+                //ClassAndObjectsV2();
+                DateTimeFunction();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -28,17 +29,32 @@ namespace App.Con
             Console.ReadLine();
         }
 
+        private static void DateTimeFunction()
+        {
+            var date = new DateTime(2003, 1, 22);
+            var timespan = (DateTime.Now - date).TotalDays;
+            Console.WriteLine($"Age => {(int)(timespan / 365)}");
+            //to get current datetime
+            Console.WriteLine($"Nepal => {DateTime.Now}");
+            Console.WriteLine($"Nepal => {DateTime.Now.ToString("yyyy, dd, MMMM hh:mm:ss")}");
+
+            var est = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+            Console.WriteLine($"Eastern Time Zone => {TimeZoneInfo.ConvertTime(DateTime.Now, est)}");
+
+            Console.WriteLine($"Expiry date (1 year from now) : {DateTime.Now.AddYears(1)}");
+        }
+
         private static void ClassAndObjectsV2()
         {
             StudentInfo s1 = new StudentInfo("Samir", "", "Maharjan");
             StudentInfo s2 = new StudentInfo("Sailesh", "Raj", "Aryal");
 
-            s1.ScienceMarks = 300.56f;
-            s1.MathMarks = 80.23f;
-            Console.WriteLine($"{s1.FullName}\nScience Marks : {s1.ScienceMarks}\nMath Marks : {s1.MathMarks}\nTotal : {s1.Total}\nPercentage : {s1.Percentage}%\nDivision : {s1.Division}");
+            s1.ScienceMarks = 00.56f;
+            s1.MathMarks = 10.23f;
+            Console.WriteLine($"{s1.FullName}\nScience Marks : {s1.ScienceMarks}\nMath Marks : {s1.MathMarks}\nTotal : {s1.Total}\nPercentage : {s1.Percentage}\nDivision : {s1.Division}");
             s1.ScienceMarks = 50;
             Console.WriteLine("\n\nAfter changign marks of science\n\n");
-            Console.WriteLine($"{s1.FullName}\nScience Marks : {s1.ScienceMarks}\nMath Marks : {s1.MathMarks}\nTotal : {s1.Total}\nPercentage : {s1.Percentage}%\nDivision : {s1.Division}");
+            Console.WriteLine($"{s1.FullName}\nScience Marks : {s1.ScienceMarks}\nMath Marks : {s1.MathMarks}\nTotal : {s1.Total}\nPercentage : {s1.Percentage}\nDivision : {s1.Division}");
             Console.WriteLine(s1.MathMarks);
             //Console.WriteLine(s1.FullName);
             //Console.WriteLine(s2.FullName);

@@ -20,7 +20,7 @@ namespace App.Con
                 //StructExample();
                 //StringConcatenation();
                 //ClassAndObjects();
-                ClassAndObjectsV2();
+                //ClassAndObjectsV2();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();

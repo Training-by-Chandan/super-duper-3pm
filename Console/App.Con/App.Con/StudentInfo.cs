@@ -128,5 +128,62 @@ namespace App.Con
                 else return "Fail";
             }
         }
+
+        public int Adds(int a, int b) => a + b;
+
+        //function overloading
+        public int Add(int a, int b) //int, int
+        {
+            return a + b;
+        }
+
+        public int Add(int b, float a)//int, float
+        {
+            return (int)a + b;
+        }
+
+        public int Add(float b, int a) // float, int
+        {
+            Display(a);
+            return (int)(a + b);
+        }
+
+        public static void Display(int a)
+        {
+            for (int i = 0; i < a; i++)
+            {
+                if (a == 3)
+                {
+                    return;
+                }
+            }
+        }
+
+        //Operator overloading
+        //+
+        public static StudentInfo operator +(StudentInfo a, StudentInfo b)
+        {
+            var ret = new StudentInfo(a.FullMarks + b.FullMarks, a.PassMarks + b.PassMarks, a.FirstName, a.MiddleName, a.LastName);
+            ret.MathMarks = a.MathMarks + b.MathMarks;
+            ret.ScienceMarks = a.ScienceMarks + b.ScienceMarks;
+
+            return ret;
+        }
+
+        public static StudentInfo operator ++(StudentInfo a)
+        {
+            a.MathMarks++;
+            a.ScienceMarks++;
+
+            return a;
+        }
+
+        public static StudentInfo operator +(StudentInfo a, float b)
+        {
+            a.MathMarks = a.MathMarks + b;
+            a.ScienceMarks = a.ScienceMarks + b;
+
+            return a;
+        }
     }
 }

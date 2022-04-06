@@ -21,12 +21,45 @@ namespace App.Con
                 //StringConcatenation();
                 //ClassAndObjects();
                 //ClassAndObjectsV2();
-                DateTimeFunction();
+                //DateTimeFunction();
+                OperatorOverloadingExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void OperatorOverloadingExample()
+        {
+            StudentInfo s1 = new StudentInfo("Samir", "", "Maharjan");
+            s1.MathMarks = 40;
+            s1.ScienceMarks = 40;
+            StudentInfo s2 = new StudentInfo("Samir", "", "Maharjan");
+            s2.MathMarks = 50;
+            s2.ScienceMarks = 50;
+            StudentInfo s3 = new StudentInfo("Samir", "", "Maharjan");
+            s3.MathMarks = 50;
+            s3.ScienceMarks = 50;
+            StudentInfo s4 = new StudentInfo("Samir", "", "Maharjan");
+            s4.MathMarks = 50;
+            s4.ScienceMarks = 50;
+            StudentInfo s5 = new StudentInfo("Samir", "", "Maharjan");
+            s5.MathMarks = 50;
+            s5.ScienceMarks = 50;
+            int i = 10;
+            i++;
+            int j = 6;
+            int k = 19;
+            int l = i + 5;
+
+            StudentInfo final = s1 + s2 + s3 + s4 + s5;
+            s5++;
+            s5 = s5 + 5;
+
+            StudentInfo sres = new StudentInfo(s1.FullMarks + s2.FullMarks + s3.FullMarks + s4.FullMarks, s1.PassMarks + s2.PassMarks + s3.PassMarks + s4.PassMarks, "Samir", "", "Maharjan");
+            sres.MathMarks = s1.MathMarks + s2.MathMarks + s3.MathMarks + s4.MathMarks;
+            sres.ScienceMarks = s1.ScienceMarks + s2.ScienceMarks + s3.ScienceMarks + s4.ScienceMarks;
         }
 
         private static void DateTimeFunction()

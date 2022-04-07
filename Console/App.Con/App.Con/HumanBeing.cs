@@ -64,6 +64,18 @@ namespace App.Con
 
         public void DisplayIdentity()
         {
+            StudentInfo s1 = new StudentInfo("Samir", "", "Maharjan");
+            s1.MathMarks = 40;
+            s1.ScienceMarks = 40;
+            StudentInfo s2 = new StudentInfo("Samir", "", "Maharjan");
+            s2.MathMarks = 50;
+            s2.ScienceMarks = 50;
+            StudentInfo s3 = new StudentInfo("Samir", "", "Maharjan");
+            s3.MathMarks = 50;
+            s3.ScienceMarks = 50;
+
+            var rres = s1 + s2 + s3;
+
             Console.WriteLine(this._fname);
         }
 

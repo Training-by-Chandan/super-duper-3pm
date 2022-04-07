@@ -89,11 +89,22 @@ namespace App.Con
             }
         }
 
+        private float _computer;
+
+        public float ComputereMarks
+        {
+            get { return _computer; }
+            set
+            {
+                _computer = value > FullMarks ? (float)FullMarks : value < 0 ? 0 : value;
+            }
+        }
+
         public float Total
         {
             get
             {
-                return MathMarks + ScienceMarks;
+                return MathMarks + ScienceMarks + ComputereMarks;
             }
         }
 
@@ -109,7 +120,7 @@ namespace App.Con
         {
             get
             {
-                return (float)((Total / (2 * FullMarks)) * 100);
+                return (float)((Total / (3 * FullMarks)) * 100);
             }
         }
 
@@ -163,27 +174,56 @@ namespace App.Con
         //+
         public static StudentInfo operator +(StudentInfo a, StudentInfo b)
         {
-            var ret = new StudentInfo(a.FullMarks + b.FullMarks, a.PassMarks + b.PassMarks, a.FirstName, a.MiddleName, a.LastName);
-            ret.MathMarks = a.MathMarks + b.MathMarks;
-            ret.ScienceMarks = a.ScienceMarks + b.ScienceMarks;
+            var totalFullmarks = a.FullMarks + b.FullMarks;
+            var totalPassmarks = a.PassMarks + b.PassMarks;
+            StudentInfo sres = new StudentInfo(totalFullmarks, totalPassmarks, a.FirstName, a.MiddleName, a.LastName);
+            sres.MathMarks = a.MathMarks + b.MathMarks;
+            sres.ScienceMarks = a.ScienceMarks + b.ScienceMarks;
+            sres.ComputereMarks = a.ComputereMarks + b.ComputereMarks;
 
-            return ret;
+            return sres;
         }
 
-        public static StudentInfo operator ++(StudentInfo a)
+        public static StudentInfo operator -(StudentInfo a, StudentInfo b)
         {
-            a.MathMarks++;
-            a.ScienceMarks++;
+            var totalFullmarks = a.FullMarks - b.FullMarks;
+            var totalPassmarks = a.PassMarks - b.PassMarks;
+            StudentInfo sres = new StudentInfo(totalFullmarks, totalPassmarks, a.FirstName, a.MiddleName, a.LastName);
+            sres.MathMarks = a.MathMarks - b.MathMarks;
+            sres.ScienceMarks = a.ScienceMarks - b.ScienceMarks;
+            sres.ComputereMarks = a.ComputereMarks - b.ComputereMarks;
+
+            return sres;
+        }
+
+        public static StudentInfo operator +(StudentInfo a, double b)
+        {
+            a.MathMarks = a.MathMarks + 5;
+            a.ScienceMarks = a.ScienceMarks + 5;
+            a.ComputereMarks = a.ComputereMarks + 5;
 
             return a;
         }
 
-        public static StudentInfo operator +(StudentInfo a, float b)
+        //equals to and not equals to == , !=
+        public static bool operator ==(StudentInfo a, StudentInfo b)
         {
-            a.MathMarks = a.MathMarks + b;
-            a.ScienceMarks = a.ScienceMarks + b;
+            return a.FullMarks == b.FullMarks && a.PassMarks == b.PassMarks && a.ScienceMarks == b.ScienceMarks && a.MathMarks == b.MathMarks && a.ComputereMarks == b.ComputereMarks;
+        }
 
-            return a;
+        public static bool operator !=(StudentInfo a, StudentInfo b)
+        {
+            return !(a.FullMarks == b.FullMarks && a.PassMarks == b.PassMarks && a.ScienceMarks == b.ScienceMarks && a.MathMarks == b.MathMarks && a.ComputereMarks == b.ComputereMarks);
+        }
+
+        //less than , greater  than <, > : do it in total
+
+        // less than and equals to , greater than and equals to <=, >=
+
+        //Override
+        public override string ToString()
+        {
+            return $"Fullname : {FullName}\nScience Marks : {ScienceMarks}\nMath Marks : {MathMarks}\nComputer : {ComputereMarks}\nTotal : {Total}\nPercentage : {Percentage}\nDivision : {Division}";
         }
     }
 }

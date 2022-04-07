@@ -22,7 +22,8 @@ namespace App.Con
                 //ClassAndObjects();
                 //ClassAndObjectsV2();
                 //DateTimeFunction();
-                OperatorOverloadingExample();
+                //OperatorOverloadingExample();
+                OperatorOverloadingV2();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -30,17 +31,59 @@ namespace App.Con
             Console.ReadLine();
         }
 
+        private static void OperatorOverloadingV2()
+        {
+            StudentInfo s1 = new StudentInfo("Samir", "", "Maharjan");
+            s1.MathMarks = 40;
+            s1.ScienceMarks = 40;
+            s1.ComputereMarks = 40;
+            StudentInfo s2 = new StudentInfo("Samir", "", "Maharjan");
+            s2.MathMarks = 50;
+            s2.ScienceMarks = 50;
+            s2.ComputereMarks = 50;
+
+            StudentInfo s3 = new StudentInfo("Samir", "", "Maharjan");
+            s3.MathMarks = 50;
+            s3.ScienceMarks = 50;
+            s3.ComputereMarks = 50;
+
+            StudentInfo s4 = new StudentInfo("Samir", "", "Maharjan");
+            s4.MathMarks = 50;
+            s4.ScienceMarks = 50;
+            StudentInfo s5 = new StudentInfo("Samir", "", "Maharjan");
+            s5.MathMarks = 50;
+            s5.ScienceMarks = 50;
+            Console.WriteLine(s1.ToString());
+            Console.WriteLine();
+            StudentInfo[] students = new StudentInfo[] { s1, s2, s3, s4, s5 };
+            StudentInfo final = new StudentInfo();
+            for (int i = 0; i < students.Length; i++)
+            {
+                final += students[i];
+            }
+
+            Console.WriteLine(final.ToString());
+
+            s1 = 2 * s1;
+            s1 = s1 / 2;
+        }
+
         private static void OperatorOverloadingExample()
         {
             StudentInfo s1 = new StudentInfo("Samir", "", "Maharjan");
             s1.MathMarks = 40;
             s1.ScienceMarks = 40;
+            s1.ComputereMarks = 40;
             StudentInfo s2 = new StudentInfo("Samir", "", "Maharjan");
             s2.MathMarks = 50;
             s2.ScienceMarks = 50;
+            s2.ComputereMarks = 50;
+
             StudentInfo s3 = new StudentInfo("Samir", "", "Maharjan");
             s3.MathMarks = 50;
             s3.ScienceMarks = 50;
+            s3.ComputereMarks = 50;
+
             StudentInfo s4 = new StudentInfo("Samir", "", "Maharjan");
             s4.MathMarks = 50;
             s4.ScienceMarks = 50;
@@ -50,16 +93,22 @@ namespace App.Con
             int i = 10;
             i++;
             int j = 6;
-            int k = 19;
+            int k = i + j;
             int l = i + 5;
 
-            StudentInfo final = s1 + s2 + s3 + s4 + s5;
-            s5++;
-            s5 = s5 + 5;
+            StudentInfo final = s1 + s2;
+            s1 = s1 + 5;
+            s1 = final - s2;
+            Console.WriteLine(s2 == s3);
 
-            StudentInfo sres = new StudentInfo(s1.FullMarks + s2.FullMarks + s3.FullMarks + s4.FullMarks, s1.PassMarks + s2.PassMarks + s3.PassMarks + s4.PassMarks, "Samir", "", "Maharjan");
-            sres.MathMarks = s1.MathMarks + s2.MathMarks + s3.MathMarks + s4.MathMarks;
-            sres.ScienceMarks = s1.ScienceMarks + s2.ScienceMarks + s3.ScienceMarks + s4.ScienceMarks;
+            i += 5; // i=i+5;
+
+            var totalFullmarks = s1.FullMarks + s2.FullMarks + s3.FullMarks;
+            var totalPassmarks = s1.PassMarks + s2.PassMarks + s3.PassMarks;
+            StudentInfo sres = new StudentInfo(totalFullmarks, totalPassmarks, "Samir", "", "Maharjan");
+            sres.MathMarks = s1.MathMarks + s2.MathMarks + s3.MathMarks;
+            sres.ScienceMarks = s1.ScienceMarks + s2.ScienceMarks + s3.ScienceMarks;
+            sres.ComputereMarks = s1.ComputereMarks + s2.ComputereMarks + s3.ComputereMarks;
         }
 
         private static void DateTimeFunction()

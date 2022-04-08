@@ -210,7 +210,7 @@ namespace App.Con
             return Multiply(b, a);
         }
 
-        private static object Multiply(double b, StudentInfo a)
+        private static StudentInfo Multiply(double b, StudentInfo a)
         {
             a.FullMarks = (float)(a.FullMarks * b);
             a.PassMarks = (float)(a.PassMarks * b);
@@ -221,9 +221,9 @@ namespace App.Con
             return a;
         }
 
-        public static StudentInfo operator *(double b, StudentInfo a)
+        public static StudentInfo operator *(StudentInfo a, double b )
         {
-            return a * b;
+            return Multiply(b,a);
         }
         public static StudentInfo operator /(StudentInfo a, double b)
         {

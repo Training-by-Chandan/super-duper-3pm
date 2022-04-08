@@ -35,9 +35,9 @@ namespace App.Con
         }
 
         private double _fullMarks;
-        public double FullMarks => _fullMarks;
+        public double FullMarks { get => _fullMarks; set => _fullMarks = value; }
         private double _passMarks;
-        public double PassMarks => _passMarks;
+        public double PassMarks {get => _passMarks; set => _passMarks = value; }
 
         public bool IsFailedInMinOneSubject => ScienceMarks < PassMarks || MathMarks < PassMarks;
 
@@ -205,6 +205,36 @@ namespace App.Con
             return a;
         }
 
+        public static StudentInfo operator *(double b, StudentInfo a)
+        {
+            return Multiply(b, a);
+        }
+
+        private static object Multiply(double b, StudentInfo a)
+        {
+            a.FullMarks = (float)(a.FullMarks * b);
+            a.PassMarks = (float)(a.PassMarks * b);
+            a.MathMarks = (float)(a.MathMarks * b);
+            a.ScienceMarks = (float)(a.ScienceMarks * b);
+            a.ComputereMarks = (float)(a.ComputereMarks * b);
+
+            return a;
+        }
+
+        public static StudentInfo operator *(double b, StudentInfo a)
+        {
+            return a * b;
+        }
+        public static StudentInfo operator /(StudentInfo a, double b)
+        {
+            a.FullMarks = (float)(a.FullMarks / b);
+            a.PassMarks = (float)(a.PassMarks / b);
+            a.MathMarks = (float)(a.MathMarks / b);
+            a.ScienceMarks = (float)(a.ScienceMarks / b);
+            a.ComputereMarks = (float)(a.ComputereMarks / b);
+
+            return a;
+        }
         //equals to and not equals to == , !=
         public static bool operator ==(StudentInfo a, StudentInfo b)
         {
@@ -217,7 +247,22 @@ namespace App.Con
         }
 
         //less than , greater  than <, > : do it in total
-
+        public static bool operator <(StudentInfo a, StudentInfo b)
+        {
+            return a.Total < b.Total;   
+        }
+        public static bool operator >(StudentInfo a, StudentInfo b)
+        {
+            return a.Total > b.Total;
+        }
+        public static bool operator >=(StudentInfo a, StudentInfo b)
+        {
+            return a.Total >= b.Total;
+        }
+        public static bool operator <=(StudentInfo a, StudentInfo b)
+        {
+            return a.Total <= b.Total;
+        }
         // less than and equals to , greater than and equals to <=, >=
 
         //Override

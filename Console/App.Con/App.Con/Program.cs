@@ -64,6 +64,7 @@ namespace App.Con
 
             Console.WriteLine(final.ToString());
 
+            s1 = s1 * 2;
             s1 = 2 * s1;
             s1 = s1 / 2;
         }

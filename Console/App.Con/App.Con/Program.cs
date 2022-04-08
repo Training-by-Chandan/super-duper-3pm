@@ -22,8 +22,8 @@ namespace App.Con
                 //ClassAndObjects();
                 //ClassAndObjectsV2();
                 //DateTimeFunction();
-                //OperatorOverloadingExample();
-                OperatorOverloadingV2();
+                OperatorOverloadingExample();
+                //OperatorOverloadingV2();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -100,6 +100,9 @@ namespace App.Con
             s1 = s1 + 5;
             s1 = final - s2;
             Console.WriteLine(s2 == s3);
+            Console.WriteLine(s1<s2);
+            Console.WriteLine(s1>=s2);
+            Console.WriteLine(s1<=s3);  
 
             i += 5; // i=i+5;
 
@@ -412,12 +415,14 @@ namespace App.Con
             //bool either true or false
             //char => single character a b c 1 @ #
             //string => collection of characters
+
             //int  => signed int 32 bit
             //uint => unsigned int 32 bit
             //short => signed int 16bit
             //ushort => unsigned number 16 bit
             //long => signed int 64 bit
             //ulong =>unsigned int 64 bit
+
             //float, single => floating point numbers, it contains decimal
             //double => same as float but holds big number
             //decimal => same as float but holds much more bigger number

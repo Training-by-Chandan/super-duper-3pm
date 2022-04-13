@@ -2,6 +2,7 @@
 
 namespace App.Con
 {
+    //StudentInfo
     public class StudentInfo
     {
         public StudentInfo()
@@ -37,7 +38,7 @@ namespace App.Con
         private double _fullMarks;
         public double FullMarks { get => _fullMarks; set => _fullMarks = value; }
         private double _passMarks;
-        public double PassMarks {get => _passMarks; set => _passMarks = value; }
+        public double PassMarks { get => _passMarks; set => _passMarks = value; }
 
         public bool IsFailedInMinOneSubject => ScienceMarks < PassMarks || MathMarks < PassMarks;
 
@@ -221,10 +222,11 @@ namespace App.Con
             return a;
         }
 
-        public static StudentInfo operator *(StudentInfo a, double b )
+        public static StudentInfo operator *(StudentInfo a, double b)
         {
-            return Multiply(b,a);
+            return Multiply(b, a);
         }
+
         public static StudentInfo operator /(StudentInfo a, double b)
         {
             a.FullMarks = (float)(a.FullMarks / b);
@@ -235,6 +237,7 @@ namespace App.Con
 
             return a;
         }
+
         //equals to and not equals to == , !=
         public static bool operator ==(StudentInfo a, StudentInfo b)
         {
@@ -249,20 +252,24 @@ namespace App.Con
         //less than , greater  than <, > : do it in total
         public static bool operator <(StudentInfo a, StudentInfo b)
         {
-            return a.Total < b.Total;   
+            return a.Total < b.Total;
         }
+
         public static bool operator >(StudentInfo a, StudentInfo b)
         {
             return a.Total > b.Total;
         }
+
         public static bool operator >=(StudentInfo a, StudentInfo b)
         {
             return a.Total >= b.Total;
         }
+
         public static bool operator <=(StudentInfo a, StudentInfo b)
         {
             return a.Total <= b.Total;
         }
+
         // less than and equals to , greater than and equals to <=, >=
 
         //Override

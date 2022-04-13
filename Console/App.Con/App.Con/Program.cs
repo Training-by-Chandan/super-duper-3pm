@@ -92,7 +92,7 @@ namespace App.Con
             s5.MathMarks = 50;
             s5.ScienceMarks = 50;
             int i = 10;
-            i++;
+            i = i + 5;
             int j = 6;
             int k = i + j;
             int l = i + 5;
@@ -101,9 +101,9 @@ namespace App.Con
             s1 = s1 + 5;
             s1 = final - s2;
             Console.WriteLine(s2 == s3);
-            Console.WriteLine(s1<s2);
-            Console.WriteLine(s1>=s2);
-            Console.WriteLine(s1<=s3);  
+            Console.WriteLine(s1 < s2);
+            Console.WriteLine(s1 >= s2);
+            Console.WriteLine(s1 <= s3);
 
             i += 5; // i=i+5;
 

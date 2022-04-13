@@ -24,12 +24,29 @@ namespace App.Con
                 //DateTimeFunction();
                 //OperatorOverloadingExample();
                 //OperatorOverloadingV2();
-                StaticAndNonStaticExample();
-
+                //StaticAndNonStaticExample();
+                ExtensionFunctionExamples();
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void ExtensionFunctionExamples()
+        {
+            int x = 10;
+            x = x.Add(5);
+            string x1 = x.ToString();
+            string a = "123";
+            var i = a.ToInt();
+            DateTime d1 = new DateTime(1958, 2, 10);
+            Console.WriteLine($"Age is {d1.Age()} years old");
+            a.Console();
+            d1.ToString().Console();
+            DateTimeExtensions.Console(d1);
+            d1.Console();
+            //var diff=DateTime.Now-d1 ;
+            //var years = diff.TotalDays / 365;
         }
 
         private static void StaticAndNonStaticExample()

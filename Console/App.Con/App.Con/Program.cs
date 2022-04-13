@@ -22,13 +22,38 @@ namespace App.Con
                 //ClassAndObjects();
                 //ClassAndObjectsV2();
                 //DateTimeFunction();
-                OperatorOverloadingExample();
+                //OperatorOverloadingExample();
                 //OperatorOverloadingV2();
+                StaticAndNonStaticExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void StaticAndNonStaticExample()
+        {
+            //StaticClass s1 = new StaticClass(); // We cannot create the object of static class nor we can declare the variable of type Static class
+            NonStaticClass ns1 = new NonStaticClass();
+            NonStaticClass ns2 = new NonStaticClass();
+            NonStaticClass ns3 = new NonStaticClass();
+
+            //StaticClass.Number = 10;
+            //StaticClass.Function();
+
+            //NonStaticClass.StaticFunction();
+            //NonStaticClass.StaticNumber = 10;
+
+            //ns1.Number = 10;
+
+            ns1.Function();
+            ns2.Function();
+            ns3.Function();
+
+            ns1.Function();
+            ns2.Function();
+            ns3.Function();
         }
 
         private static void OperatorOverloadingV2()

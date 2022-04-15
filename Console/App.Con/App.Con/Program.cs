@@ -25,11 +25,28 @@ namespace App.Con
                 //OperatorOverloadingExample();
                 //OperatorOverloadingV2();
                 //StaticAndNonStaticExample();
-                ExtensionFunctionExamples();
+                //ExtensionFunctionExamples();
+                InheritanceExample();
+
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void InheritanceExample()
+        {
+            LivingThings l1 = new LivingThings();
+            LivingThings a1 = new Animal();
+            LivingThings a2 = new Animal(12);
+            l1.Eat();
+            a1.Eat();
+
+            LivingThings p1 = new Plant();
+            p1.Eat();
+
+            LivingThings h1 = new Human();
+            h1.Eat();
         }
 
         private static void ExtensionFunctionExamples()

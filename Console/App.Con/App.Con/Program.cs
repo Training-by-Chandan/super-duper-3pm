@@ -26,12 +26,46 @@ namespace App.Con
                 //OperatorOverloadingV2();
                 //StaticAndNonStaticExample();
                 //ExtensionFunctionExamples();
-                InheritanceExample();
+                //InheritanceExample();
+                InterfaceExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void InterfaceExample()
+        {
+            Console.WriteLine("Enter the choice");
+            var choice = Convert.ToInt32(Console.ReadLine());
+
+            var shape = GetShape(choice);
+
+            shape.GetInput();
+            shape.Area();
+            shape.Perimeter();
+        }
+
+        //factory method for getting the shape
+        private static IShape GetShape(int choice)
+        {
+            IShape sh = new Rectangle();
+
+            switch (choice)
+            {
+                case 1:
+                    return new Rectangle();
+
+                case 2:
+                    return new Circle();
+
+                case 3:
+                    return new Triangle();
+
+                default:
+                    return new Square();
+            }
         }
 
         private static void InheritanceExample()

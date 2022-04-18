@@ -28,6 +28,7 @@ namespace App.Con
                 //ExtensionFunctionExamples();
                 //InheritanceExample();
                 //InterfaceExample();
+                //InterfaceExample2();
                 AbstractShapesExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
@@ -91,6 +92,34 @@ namespace App.Con
 
                 default:
                     return new Square();
+            }
+        }
+
+        public static void InterfaceExample2()
+        {
+            Console.WriteLine("Enter your car brand");
+            var choice = Convert.ToInt32(Console.ReadLine());
+
+            var cr = IdentifyCar(choice);
+
+            cr.Model();
+            cr.Speed();
+        }
+
+        private static ICar IdentifyCar(int c)
+        {
+            ICar ic = new BMW();
+
+            switch (c)
+            {
+                case 1:
+                    return new BMW();
+
+                case 2:
+                    return new Toyota();
+
+                default:
+                    return new Suzuki();
             }
         }
 

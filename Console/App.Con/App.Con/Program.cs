@@ -27,7 +27,8 @@ namespace App.Con
                 //StaticAndNonStaticExample();
                 //ExtensionFunctionExamples();
                 //InheritanceExample();
-                InterfaceExample();
+                //InterfaceExample();
+                InterfaceExample2();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -68,6 +69,33 @@ namespace App.Con
             }
         }
 
+        public static void InterfaceExample2()
+        {
+            Console.WriteLine("Enter your car brand");
+            var choice = Convert.ToInt32(Console.ReadLine());
+
+            var cr = IdentifyCar(choice);
+
+            cr.Model();
+            cr.Speed();
+        }
+        private static ICar IdentifyCar(int c)
+        {
+            ICar ic = new BMW();
+
+            switch (c)
+            {
+                case 1:
+                    return new BMW();
+
+                case 2:
+                    return new Toyota();
+
+                default:
+                    return new Suzuki();
+            }
+
+        }
         private static void InheritanceExample()
         {
             LivingThings l1 = new LivingThings();

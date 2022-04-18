@@ -110,4 +110,47 @@ namespace App.Con
             throw new NotImplementedException();
         }
     }
+    public interface ICar
+        {
+            void Model();
+            void Speed();
+        }
+    public class BMW : ICar
+    {
+        public void Model()
+        {
+            System.Console.WriteLine("This is BMW 121");
+        }
+
+        public void Speed()
+        {
+            System.Console.WriteLine("500CC");
+        }
+    }
+
+    public class Toyota : ICar
+    {
+        public void Model()
+        {
+            System.Console.WriteLine("This is Toyota 11");
+        }
+
+        public void Speed()
+        {
+            System.Console.WriteLine("450CC");
+        }
+    }
+
+    public class Suzuki : ICar
+    {
+        public void Model()
+        {
+            System.Console.WriteLine("This is Suzuki 112");
+        }
+
+        public void Speed()
+        {
+            System.Console.WriteLine("390CC");
+        }
+    }
 }

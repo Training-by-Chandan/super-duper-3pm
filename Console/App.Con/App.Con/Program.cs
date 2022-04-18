@@ -27,12 +27,38 @@ namespace App.Con
                 //StaticAndNonStaticExample();
                 //ExtensionFunctionExamples();
                 //InheritanceExample();
-                InterfaceExample();
+                //InterfaceExample();
+                AbstractShapesExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void AbstractShapesExample()
+        {
+            Console.WriteLine("Enter the choice");
+            var choice = Convert.ToInt32(Console.ReadLine());
+
+            var shape = GetAbstractShape(choice);
+
+            shape.GetInputAndCalculate();
+            shape.Area();
+            shape.Perimeter();
+        }
+
+        //factory method for getting the shape
+        private static ShapeAbs GetAbstractShape(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return new RectangleAbs();
+
+                default:
+                    return new SquareAbs();
+            }
         }
 
         private static void InterfaceExample()

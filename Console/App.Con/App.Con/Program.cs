@@ -29,14 +29,34 @@ namespace App.Con
                 //InheritanceExample();
                 //InterfaceExample();
                 //InterfaceExample2();
-                AbstractShapesExample();
+                //AbstractShapesExample();
+                AbstractCarExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
         }
+        private static void AbstractCarExample()
+        {
+            Console.WriteLine("Enter your choice");
+            var choice = Convert.ToInt32(Console.ReadLine());
+            var car = GetAbstractCar(choice);
 
+            car.DisplayCharacter();
+        }
+
+        private static CarAbs GetAbstractCar(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return new CarToyota1();
+
+                default:
+                    return new CarToyota2();
+            }
+        }
         private static void AbstractShapesExample()
         {
             Console.WriteLine("Enter the choice");

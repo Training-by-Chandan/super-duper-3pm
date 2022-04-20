@@ -29,12 +29,51 @@ namespace App.Con
                 //InheritanceExample();
                 //InterfaceExample();
                 //InterfaceExample2();
-                AbstractShapesExample();
+                //AbstractShapesExample();
+                CustomStackExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void CustomStackExample()
+        {
+            CustomStack cs = new CustomStack();
+            Console.WriteLine("After adding book 1, 2 and 3");
+            cs.Push("Book 1");
+            cs.Push("Book 2");
+            cs.Push("Book 3");
+            cs.DisplayAll();
+
+            Console.WriteLine("After popping 2 times");
+            cs.Pop();
+            cs.Pop();
+            cs.DisplayAll();
+
+            Console.WriteLine("After adding book 4, 5, 6, 7, 8, 9, 10");
+            cs.Push("Book 4");
+            cs.Push("Book 5");
+            cs.Push("Book 6");
+            cs.Push("Book 7");
+            cs.Push("Book 8");
+            cs.Push("Book 9");
+            cs.Push("Book 10");
+            cs.DisplayAll();
+
+            Console.WriteLine("After popping 10 times");
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.DisplayAll();
         }
 
         private static void AbstractShapesExample()

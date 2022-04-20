@@ -76,4 +76,35 @@ namespace App.Con
             perimeter = 2 * (length + breadth);
         }
     }
+
+    public abstract class CarAbs
+    {
+        public double cost { get; set; }
+        public string model_name { get; set; }
+
+        public abstract void DisplayCharacter();
+        
+    }
+
+    public class CarToyota1 : CarAbs
+    {
+       public override void DisplayCharacter()
+        {
+            cost = 1599999.99;
+            model_name = "Toyota Mtza";
+            System.Console.WriteLine($"The car model is {model_name} and cost $ {cost}");
+            
+        }
+    }
+
+    public class CarToyota2 : CarAbs
+    {
+        public override void DisplayCharacter()
+        {
+            cost = 299999.99;
+            model_name = "Toyota Vintage";
+            System.Console.WriteLine($"The car model is {model_name} and cost $ {cost}");
+        }
+    }
+
 }

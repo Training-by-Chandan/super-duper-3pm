@@ -30,22 +30,92 @@ namespace App.Con
                 //InterfaceExample();
                 //InterfaceExample2();
                 //AbstractShapesExample();
-                CustomStackExample();
+                //CustomStackExample();
                 //AbstractShapesExample();
-                AbstractCarExample();
+                //AbstractCarExample();
+                //CustomQueueImplementation();
+                CustomQueueImplementationV2();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
         }
+
+        private static void TemplatedSTack()
+        {
+            var stack = new CustomStackTemplated<int>();
+            stack.Push(12);
+            stack.Push(23);
+            var stack2 = new CustomStackTemplated<string>();
+            stack2.Push("12");
+            stack2.Push("23");
+            var stack3 = new CustomStackTemplated<float>();
+            stack3.Push(12.34f);
+            stack3.Push(12.34f);
+            var stack4 = new CustomStackTemplated<IShape>();
+            stack4.Push(new Circle());
+            stack4.Push(new Square());
+            stack4.Push(new Rectangle());
+        }
+
+        private static void CustomQueueImplementationV2()
+        {
+            CustomQueueV2 cq = new CustomQueueV2();
+            cq.Enqueue("53");
+            cq.Enqueue("45");
+            cq.Enqueue("65");
+            cq.Enqueue("43");
+            cq.Enqueue("67");
+            cq.DisplayAll();
+
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.DisplayAll();
+
+            cq.Enqueue("78");
+            cq.Enqueue("56");
+            cq.DisplayAll();
+
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.DisplayAll();
+        }
+
+        private static void CustomQueueImplementation()
+        {
+            CustomQueue cq = new CustomQueue();
+            cq.Enqueue("53");
+            cq.Enqueue("45");
+            cq.Enqueue("65");
+            cq.DisplayAll();
+
+            cq.Dequeue();
+            cq.Dequeue();
+            cq.DisplayAll();
+
+            cq.Enqueue("78");
+            cq.Enqueue("56");
+            cq.DisplayAll();
+        }
+
         private static void AbstractCarExample()
         {
             Console.WriteLine("Enter your choice");
             var choice = Convert.ToInt32(Console.ReadLine());
-            var car = GetAbstractCar(choice);
+            //var car = GetAbstractCar(choice);
 
-            car.DisplayCharacter();
+            // car.DisplayCharacter();
         }
 
         private static void CustomStackExample()

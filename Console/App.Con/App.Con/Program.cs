@@ -32,7 +32,8 @@ namespace App.Con
                 //AbstractShapesExample();
                 CustomStackExample();
                 //AbstractShapesExample();
-                AbstractCarExample();
+                //AbstractCarExample();
+
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -43,9 +44,9 @@ namespace App.Con
         {
             Console.WriteLine("Enter your choice");
             var choice = Convert.ToInt32(Console.ReadLine());
-            var car = GetAbstractCar(choice);
+           /* var car = GetAbstractCar(choice);
 
-            car.DisplayCharacter();
+            car.DisplayCharacter();*/
         }
 
         private static void CustomStackExample()

@@ -42,6 +42,11 @@ namespace App.Con
             Console.ReadLine();
         }
 
+        private static void TemplatedExample()
+        {
+            var obj1 = new TemplatedClass<string, bool, Circle, Human>();
+        }
+
         private static void TemplatedSTack()
         {
             var stack = new CustomStackTemplated<int>();

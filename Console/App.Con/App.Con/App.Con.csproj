@@ -54,6 +54,7 @@
     <Compile Include="StaticAndNonStatic.cs" />
     <Compile Include="StudentInfo.cs" />
     <Compile Include="StudentStruct.cs" />
+    <Compile Include="Templates.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

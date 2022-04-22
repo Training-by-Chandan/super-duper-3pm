@@ -238,6 +238,65 @@ namespace App.Con
         }
     }
 
+    public class CustomQueueTemp<TData>
+    {
+        public CustomQueueTemp()
+        {
+            container = new TData[5];
+        }
+
+        public CustomQueueTemp(int newSize)
+        {
+            container = new TData[newSize];
+        }
+
+        //1. Container (array)
+        private TData[] container;
+
+        //2. Counter(int)
+        private int counter = -1;
+
+        public void Enqueue(TData s)
+        {
+            if (counter < container.Length - 1)
+            {
+                counter++;
+                container[counter] = s;
+            }
+        }
+
+        public void Dequeue()
+        {
+            if (counter >= 0)
+            {
+                container[0] = default(TData);
+                if (counter >= 1)
+                {
+                    for (int i = 1; i <= counter; i++)
+                    {
+                        container[i - 1] = container[i];
+                    }
+                    container[counter] = default(TData);
+                }
+                counter--;
+            }
+            else
+            {
+                Console.WriteLine("Queue is empty");
+            }
+        }
+
+        public void DisplayAll()
+        {
+            System.Console.WriteLine("Item in the Queue are");
+            for (int i = counter; i >= 0; i--)
+            {
+                System.Console.WriteLine(container[i]);
+            }
+            System.Console.WriteLine();
+        }
+    }
+
     public class CustomQueueV2
     {
         //1. Container (array)

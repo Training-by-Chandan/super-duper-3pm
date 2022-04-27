@@ -1,0 +1,84 @@
+﻿Microsoft (R) Visual C# Interactive Compiler version 4.1.0-5.22109.6 ()
+Loading context from 'CSharpInteractive.rsp'.
+Type "#help" for more information.
+> using System.Collections;
+> ArrayList al = new ArrayList();
+> al.Add(1);
+> al.Add("a");
+> al[1]
+"a"
+> al
+ArrayList(2) { 1, "a" }
+> al.Add(al);
+> al
+ArrayList(3) { 1, "a", ArrayList(3) { ... } }
+> al.Clear()
+> al
+ArrayList(0) { }
+> al.Add("a");
+> al.Add(1);
+> al.Remove(2)
+> al
+ArrayList(2) { "a", 1 }
+> al.Remove(1)
+> al
+ArrayList(1) { "a" }
+> al.Add(1)
+1
+> al.Add(2)
+2
+> al.Add(1)
+3
+> al
+ArrayList(4) { "a", 1, 2, 1 }
+> al.Remove(1)
+> al
+ArrayList(3) { "a", 2, 1 }
+> al.RemoveAt(2)
+> al
+ArrayList(2) { "a", 2 }
+> al.IndexOf(2)
+1
+> al.IndexOf(4)
+-1
+
+
+> //sorted list
+> //sorted list
+> SortedList sl = new SortedList();
+> sl.Add(10);
+(1,4): error CS7036: There is no argument given that corresponds to the required formal parameter 'value' of 'SortedList.Add(object, object)'
+> sl.Add(10,"October")
+> sl.Add(2,"February")
+> sl
+SortedList(2) { { 2, "February" }, { 10, "October" } }
+> sl.Add(1,"January")
+> sl
+SortedList(3) { { 1, "January" }, { 2, "February" }, { 10, "October" } }
+> sl.Contains(1)
+true
+> sl.ContainsKey(2)
+true
+> sl.ContainsValue("Jan")
+false
+> sl.ContainsValue("January")
+true
+> sl.GetKeyList()
+SortedList.KeyList(3) { 1, 2, 10 }
+> sl.GetValueList()
+SortedList.ValueList(3) { "January", "February", "October" }
+> sl.Add("a","a")
+System.InvalidOperationException: Failed to compare two elements in the array.
+  + System.Array.BinarySearch(System.Array, int, int, object, System.Collections.IComparer)
+  + System.Collections.SortedList.Add(object, object)
+> sl.Clear()
+> sl.Add("a","a")
+> sl
+SortedList(1) { { "a", "a" } }
+> sl.Add(1,"One")
+System.InvalidOperationException: Failed to compare two elements in the array.
+  + System.Array.BinarySearch(System.Array, int, int, object, System.Collections.IComparer)
+  + System.Collections.SortedList.Add(object, object)
+> 
+> 
+> 

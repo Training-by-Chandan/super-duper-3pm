@@ -59,5 +59,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Generic.txt" />
+    <Content Include="Linq.txt" />
+    <Content Include="NonGenericCollection.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

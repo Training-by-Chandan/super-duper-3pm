@@ -1,0 +1,74 @@
+﻿> #reset 64
+Resetting execution engine.
+Loading context from 'CSharpInteractive.rsp'.
+> using System.Collections.Generic;
+> List<int> l = new List<int>();
+> l.Add(1)
+> l.Add(2)
+> l.Add(12)
+> l.Add(3)
+> l
+List<int>(4) { 1, 2, 12, 3 }
+> List<int> newL = new List<int>();
+> newL.Add(4);
+> newL.AddRange(l);
+> newL
+List<int>(5) { 4, 1, 2, 12, 3 }
+> newL[0]
+4
+> newL[10]
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+  + System.ThrowHelper.ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource)
+  + List<T>.get_Item(int)
+> 
+> 
+> l.ToArray();
+> var arr = l.ToArray();
+> arr
+int[4] { 1, 2, 12, 3 }
+> 
+> arr.ToList()
+List<int>(4) { 1, 2, 12, 3 }
+> 
+> 
+> 
+> //Dictionary
+> Dictionary<int, string> daysDict = new Dictionary<int, string>();
+> daysDict.Add(1,"Sunday'")
+> daysDict.Add(2,"Monday")
+> daysDict.Add(2, "Tuesday")
+System.ArgumentException: An item with the same key has already been added.
+  + System.ThrowHelper.ThrowArgumentException(System.ExceptionResource)
+  + Dictionary<TKey, TValue>.Insert(TKey, TValue, bool)
+> daysDict(1,"Monday")
+(1,1): error CS1955: Non-invocable member 'daysDict' cannot be used like a method.
+> daysDict.Add(3,"Monday")
+> daysDict
+Dictionary<int, string>(3) { { 1, "Sunday'" }, { 2, "Monday" }, { 3, "Monday" } }
+> daysDict[0]
+System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+  + System.ThrowHelper.ThrowKeyNotFoundException()
+  + Dictionary<TKey, TValue>.get_Item(TKey)
+> daysDict[1]
+"Sunday'"
+> daysDict.Keys
+Dictionary<int, string>.KeyCollection(3) { 1, 2, 3 }
+> daysDict.Values
+Dictionary<int, string>.ValueCollection(3) { "Sunday'", "Monday", "Monday" }
+> 
+> 
+> //Hashset
+. HashSet<string> hs = new HashSet<string>()
+.     ;
+> hs.Add("A")
+true
+> hs.Add("a")
+true
+> hs
+HashSet<string>(Count = 2) { "A", "a" }
+> hs.Add("a")
+false
+> hs
+HashSet<string>(Count = 2) { "A", "a" }
+> 

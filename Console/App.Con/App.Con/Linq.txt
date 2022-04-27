@@ -1,0 +1,35 @@
+﻿> #reset 64
+Resetting execution engine.
+Loading context from 'CSharpInteractive.rsp'.
+> using System.Collections.Generic;
+> using System.Linq;
+> 
+> List<string> months = new List<string>() { "January", "Februrary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+> months
+List<string>(12) { "January", "Februrary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }
+> var filtered = (from m in months where m.ToUpper().StartsWith("J") select m)
+.     ;
+> filtered
+Enumerable.WhereListIterator<string> { "January", "June", "July" }
+> (from m in months select m.Substring(0,3))
+Enumerable.WhereSelectListIterator<string, string> { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+> (from m in months select new { Month=m, Length=m.Length }).ToList()
+List<<>f__AnonymousType0#6<string, int>>(12) { \{ Month = "January", Length = 7 }, \{ Month = "Februrary", Length = 9 }, \{ Month = "March", Length = 5 }, \{ Month = "April", Length = 5 }, \{ Month = "May", Length = 3 }, \{ Month = "June", Length = 4 }, \{ Month = "July", Length = 4 }, \{ Month = "August", Length = 6 }, \{ Month = "September", Length = 9 }, \{ Month = "October", Length = 7 }, \{ Month = "November", Length = 8 }, \{ Month = "December", Length = 8 } }
+> var nm = (from m in months select new { Month = m, Length = m.Length }).ToList();
+> nm
+List<<>f__AnonymousType0#6<string, int>>(12) { \{ Month = "January", Length = 7 }, \{ Month = "Februrary", Length = 9 }, \{ Month = "March", Length = 5 }, \{ Month = "April", Length = 5 }, \{ Month = "May", Length = 3 }, \{ Month = "June", Length = 4 }, \{ Month = "July", Length = 4 }, \{ Month = "August", Length = 6 }, \{ Month = "September", Length = 9 }, \{ Month = "October", Length = 7 }, \{ Month = "November", Length = 8 }, \{ Month = "December", Length = 8 } }
+> (from m in months orderby m select m)
+OrderedEnumerable<string, string> { "April", "August", "December", "Februrary", "January", "July", "June", "March", "May", "November", "October", "September" }
+> months.Where(p=>p.ToUpper().StartsWith("J"))
+Enumerable.WhereListIterator<string> { "January", "June", "July" }
+> months.Select(p=>p.Substring(0,3))
+Enumerable.WhereSelectListIterator<string, string> { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+> months.Select(p=>new { Month=p, Length=p.Length, ShortName=p.Substring(0,3) })
+Enumerable.WhereSelectListIterator<string, <>f__AnonymousType0#12<string, int, string>> { \{ Month = "January", Length = 7, ShortName = "Jan" }, \{ Month = "Februrary", Length = 9, ShortName = "Feb" }, \{ Month = "March", Length = 5, ShortName = "Mar" }, \{ Month = "April", Length = 5, ShortName = "Apr" }, \{ Month = "May", Length = 3, ShortName = "May" }, \{ Month = "June", Length = 4, ShortName = "Jun" }, \{ Month = "July", Length = 4, ShortName = "Jul" }, \{ Month = "August", Length = 6, ShortName = "Aug" }, \{ Month = "September", Length = 9, ShortName = "Sep" }, \{ Month = "October", Length = 7, ShortName = "Oct" }, \{ Month = "November", Length = 8, ShortName = "Nov" }, \{ Month = "December", Length = 8, ShortName = "Dec" } }
+> months.OrderBy(p=>p)
+OrderedEnumerable<string, string> { "April", "August", "December", "Februrary", "January", "July", "June", "March", "May", "November", "October", "September" }
+> months.OrderBy(p=>p.Length)
+OrderedEnumerable<string, int> { "May", "June", "July", "March", "April", "August", "January", "October", "November", "December", "Februrary", "September" }
+> months.OrderByDescending(p=>p.Length)
+OrderedEnumerable<string, int> { "Februrary", "September", "November", "December", "January", "October", "August", "March", "April", "June", "July", "May" }
+> 

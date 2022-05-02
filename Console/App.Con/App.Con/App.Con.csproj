@@ -50,6 +50,7 @@
     <Compile Include="HumanBeing.cs" />
     <Compile Include="Inheritance.cs" />
     <Compile Include="Interfaces.cs" />
+    <Compile Include="MultiTasks.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticAndNonStatic.cs" />

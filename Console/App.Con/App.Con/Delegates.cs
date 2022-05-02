@@ -54,7 +54,10 @@
             res = m(10, 5);
             m = Divide;
             res = m(10, 5);
-
+            m = (int a, int b) =>
+            {
+                return a + b;
+            };
             math.Invoke(10, 5);
         }
 

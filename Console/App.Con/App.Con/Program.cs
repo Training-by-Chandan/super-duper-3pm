@@ -35,11 +35,19 @@ namespace App.Con
                 //AbstractCarExample();
                 //CustomQueueImplementation();
                 //CustomQueueImplementationV2();
-                DelegateExample();
+                //DelegateExample();
+                MultiTasksExample();
+
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void MultiTasksExample()
+        {
+            MultiTasks mt = new MultiTasks();
+            mt.Run();
         }
 
         private static void DelegateExample()

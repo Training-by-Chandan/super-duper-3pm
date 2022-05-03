@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,12 +38,35 @@ namespace App.Con
                 //CustomQueueImplementation();
                 //CustomQueueImplementationV2();
                 //DelegateExample();
-                MultiTasksExample();
+                //MultiTasksExample();
+                HandleException();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void HandleException()
+        {
+            try
+            {
+                ExceptionHalding eh = new ExceptionHalding();
+                Console.WriteLine("Enter the number a");
+                int a = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter the number b");
+                int b = Convert.ToInt32(Console.ReadLine());
+                eh.Add(a, b);
+            }
+            catch (MultipleOf5Exception ex)
+            {
+                //Debug.WriteLine("================================");
+                //Debug.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void MultiTasksExample()
@@ -53,8 +78,8 @@ namespace App.Con
         private static void DelegateExample()
         {
             DelegatesV2 d1 = new DelegatesV2();
-            d1.Run();
             d1.math += MathOperations;
+            d1.Run();
             Delegates d = new Delegates();
             d.Run();
         }

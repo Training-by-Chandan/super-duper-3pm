@@ -45,20 +45,28 @@
 
         public void Run()
         {
-            math += Add;
-            MathOps m = Add;
-            var res = m(10, 5);
-            m = Subtract;
-            res = m(10, 5);
-            m = Multiply;
-            res = m(10, 5);
-            m = Divide;
-            res = m(10, 5);
-            m = (int a, int b) =>
+            try
             {
-                return a + b;
-            };
-            math.Invoke(10, 5);
+                math(10, 4);
+                math += Add;
+                MathOps m = Add;
+                var res = m(10, 5);
+                m = Subtract;
+                res = m(10, 5);
+                m = Multiply;
+                res = m(10, 5);
+                m = Divide;
+                res = m(10, 5);
+                m = (int a, int b) =>
+                {
+                    return a + b;
+                };
+                math.Invoke(10, 5);
+            }
+            catch (System.Exception)
+            {
+                System.Console.WriteLine("Error occured");
+            }
         }
 
         public int Add(int x, int y)

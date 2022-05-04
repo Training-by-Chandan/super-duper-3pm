@@ -83,17 +83,15 @@ namespace App.Con
         public string model_name { get; set; }
 
         public abstract void DisplayCharacter();
-        
     }
 
     public class CarToyota1 : CarAbs
     {
-       public override void DisplayCharacter()
+        public override void DisplayCharacter()
         {
             cost = 1599999.99;
             model_name = "Toyota Mtza";
             System.Console.WriteLine($"The car model is {model_name} and cost $ {cost}");
-            
         }
     }
 
@@ -106,5 +104,4 @@ namespace App.Con
             System.Console.WriteLine($"The car model is {model_name} and cost $ {cost}");
         }
     }
-
 }

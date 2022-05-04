@@ -39,12 +39,19 @@ namespace App.Con
                 //CustomQueueImplementationV2();
                 //DelegateExample();
                 //MultiTasksExample();
-                HandleException();
+                //HandleException();
+                FileHandlings();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void FileHandlings()
+        {
+            HandleFiles hf = new HandleFiles();
+            hf.Run();
         }
 
         private static void HandleException()

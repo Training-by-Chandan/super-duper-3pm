@@ -29,8 +29,8 @@ namespace App.Con
                 //StaticAndNonStaticExample();
                 //ExtensionFunctionExamples();
                 //InheritanceExample();
-                //InterfaceExample();
-                //InterfaceExample2();
+                InterfaceExample();
+                InterfaceExample2();
                 //AbstractShapesExample();
                 //CustomStackExample();
                 //AbstractShapesExample();

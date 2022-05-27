@@ -23,21 +23,9 @@ namespace WindowsFormsApp
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            var student = new StudentInfo();
-            student.Name = txtName.Text;
-            student.Email = txtEmail.Text;
-
+            var student = new StudentInfo(txtName.Text, txtEmail.Text);
             var res = studentService.Create(student);
-            if (res.Item1)
-            {
-                //todo after successful
-                ResetTextBoxes();
-                loadData();
-            }
-            else
-            {
-                MessageBox.Show(res.Item2);
-            }
+            crudResult(res);
         }
 
         private void ResetTextBoxes()
@@ -60,6 +48,63 @@ namespace WindowsFormsApp
         {
             gridStudent.DataSource = studentService.GetAll();
             gridStudent.Refresh();
+        }
+
+        private void gridStudent_SelectionChanged(object sender, EventArgs e)
+        {
+            var rows = gridStudent.SelectedRows;
+            if (rows == null || rows.Count == 0)
+            {
+                ResetTextBoxes();
+                toggleButtons(true);
+            }
+            else
+            {
+                var row = rows[0];
+                lblId.Text = row.Cells["Id"].Value?.ToString();
+                txtName.Text = row.Cells["Name"].Value?.ToString();
+                txtEmail.Text = row.Cells["Email"].Value?.ToString();
+                toggleButtons(false);
+            }
+        }
+
+        private void toggleButtons(bool createMode)
+        {
+            btnCreate.Visible = createMode;
+            btnReset.Visible = createMode;
+            btnEdit.Visible = !createMode;
+            btnDelete.Visible = !createMode;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            var student = new StudentInfo(Convert.ToInt32(lblId.Text), txtName.Text, txtEmail.Text);
+            var res = studentService.Edit(student);
+            crudResult(res);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var prompt = MessageBox.Show("Are you sure you want to delete this item?", "Danger", MessageBoxButtons.YesNo);
+            if (prompt == DialogResult.Yes)
+            {
+                var Id = Convert.ToInt32(lblId.Text);
+                var res = studentService.Delete(Id);
+                crudResult(res);
+            }
+        }
+
+        private void crudResult((bool, string) res)
+        {
+            if (res.Item1)
+            {
+                ResetTextBoxes();
+                loadData();
+            }
+            else
+            {
+                MessageBox.Show(res.Item2);
+            }
         }
     }
 }

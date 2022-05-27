@@ -9,6 +9,23 @@ namespace WindowsFormsApp.Models
 {
     public class StudentInfo
     {
+        public StudentInfo()
+        {
+        }
+
+        public StudentInfo(string name, string email)
+        {
+            Name = name;
+            Email = email;
+        }
+
+        public StudentInfo(int id, string name, string email)
+        {
+            Id = id;
+            Name = name;
+            Email = email;
+        }
+
         public int Id { get; set; }
 
         [Required]

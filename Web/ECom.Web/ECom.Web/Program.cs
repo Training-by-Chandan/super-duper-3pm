@@ -1,5 +1,6 @@
 using ECom.Repository;
 using ECom.Services;
+using ECom.Web;
 using ECom.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -16,8 +17,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
-builder.Services.AddTransient<ICategoryService, CategoryService>();
+Services.RegisterServices(builder.Services);
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
-﻿using ECom.Models.ViewModel;
+﻿using ECom.Models.Models;
+using ECom.Models.ViewModel;
 using ECom.Repository;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ namespace ECom.Services
 {
     public interface ICategoryService
     {
+        (bool, string) Create(CategoryCreateViewModel model);
+
         List<CategoryListViewModel> GetAll();
     }
 
@@ -34,6 +37,24 @@ namespace ECom.Services
                 ParentCategoryName = p.ParentCategory == null ? "" : p.ParentCategory.Name
             });
             return ret.ToList();
+        }
+
+        public (bool, string) Create(CategoryCreateViewModel model)
+        {
+            try
+            {
+                var cat = new Category()
+                {
+                    Name = model.Name,
+                    Description = model.Description,
+                    CategoryId = model.CategoryId,
+                };
+                return categoryRepository.Create(cat);
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
         }
     }
 }

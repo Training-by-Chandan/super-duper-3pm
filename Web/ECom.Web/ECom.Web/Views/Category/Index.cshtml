@@ -1,0 +1,51 @@
+﻿@model List<CategoryListViewModel>
+
+<div class="row">
+    <a asp-action="Create" asp-controller="Category" class="btn btn-outline-success">
+        Create New Category
+    </a>
+</div>
+
+<div class="container-fluid">
+@if(Model==null || Model.Count==0)
+{
+    <div class="row">
+        <span class="alert alert-danger">
+            No records found
+        </span>
+    </div>
+}
+else
+{
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Parent Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Description</td>
+                        <td>@item.ParentCategoryName</td>
+                        <td>
+                            <a asp-action="Edit" asp-controller="Category" class="btn btn-outline-success">
+                                Edit
+                            </a>
+                            <a asp-action="Delete" asp-controller="Category" class="btn btn-outline-danger">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+</div>

@@ -10,6 +10,12 @@ namespace ECom.Repository
 {
     public interface ICategoryRepository
     {
+        (bool, string) Create(Category model);
+
+        (bool, string) Delete(Category model);
+
+        (bool, string) Edit(Category model);
+
         IQueryable<Category> GetAll();
 
         Category? GetById(int id);
@@ -32,6 +38,48 @@ namespace ECom.Repository
         public Category? GetById(int id)
         {
             return db.Categories.Find(id);
+        }
+
+        public (bool, string) Create(Category model)
+        {
+            try
+            {
+                db.Categories.Add(model);
+                db.SaveChanges();
+                return (true, "Added Successfully");
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
+        }
+
+        public (bool, string) Edit(Category model)
+        {
+            try
+            {
+                db.Categories.Update(model);
+                db.SaveChanges();
+                return (true, "Updated Successfully");
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
+        }
+
+        public (bool, string) Delete(Category model)
+        {
+            try
+            {
+                db.Categories.Remove(model);
+                db.SaveChanges();
+                return (true, "Deleted Successfully");
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
         }
     }
 }

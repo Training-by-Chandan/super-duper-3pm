@@ -17,5 +17,11 @@ namespace ECom.Web.Controllers
             var data = categoryService.GetAll();
             return View(data);
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

@@ -13,7 +13,13 @@ namespace ECom.Services
     {
         (bool, string) Create(CategoryCreateViewModel model);
 
+        (bool, string) Delete(int id);
+
+        (bool, string) Edit(CategoryListViewModel model);
+
         List<CategoryListViewModel> GetAll();
+
+        CategoryListViewModel GetbyId(int Id);
     }
 
     public class CategoryService : ICategoryService
@@ -50,6 +56,60 @@ namespace ECom.Services
                     CategoryId = model.CategoryId,
                 };
                 return categoryRepository.Create(cat);
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
+        }
+
+        public CategoryListViewModel GetbyId(int Id)
+        {
+            var data = categoryRepository.GetById(Id);
+            if (data != null)
+            {
+                return new CategoryListViewModel()
+                {
+                    Id = data.Id,
+                    Name = data.Name,
+                    Description = data.Description,
+                    CategoryId = data.CategoryId,
+                    ParentCategoryName = data.ParentCategory == null ? "" : data.ParentCategory.Name
+                };
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public (bool, string) Edit(CategoryListViewModel model)
+        {
+            try
+            {
+                var existing = categoryRepository.GetById(model.Id);
+                if (existing == null) return (false, "Record not found");
+
+                existing.Name = model.Name;
+                existing.Description = model.Description;
+                existing.CategoryId = model.CategoryId;
+
+                return categoryRepository.Edit(existing);
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
+        }
+
+        public (bool, string) Delete(int id)
+        {
+            try
+            {
+                var existing = categoryRepository.GetById(id);
+                if (existing == null) return (false, "Record not found");
+
+                return categoryRepository.Delete(existing);
             }
             catch (Exception ex)
             {

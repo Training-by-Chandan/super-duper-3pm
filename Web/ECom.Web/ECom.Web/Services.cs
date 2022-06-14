@@ -10,12 +10,14 @@ namespace ECom.Web
             #region Repository
 
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
 
             #endregion Repository
 
             #region Services
 
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IProductService, ProductService>();
 
             #endregion Services
         }

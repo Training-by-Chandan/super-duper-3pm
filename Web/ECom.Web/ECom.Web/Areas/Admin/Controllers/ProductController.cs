@@ -1,12 +1,16 @@
 ﻿using ECom.Models.ViewModel;
 using ECom.Repository;
 using ECom.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
-namespace ECom.Web.Controllers
+namespace ECom.Web.Areas.Admin.Controllers
 {
+    [Authorize]
+    [Area("Admin")]
+
     public class ProductController : Controller
     {
         private readonly IProductService productService;
@@ -24,6 +28,7 @@ namespace ECom.Web.Controllers
             this.hostingEnvironment = hostingEnvironment;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var data = productService.GetAll();

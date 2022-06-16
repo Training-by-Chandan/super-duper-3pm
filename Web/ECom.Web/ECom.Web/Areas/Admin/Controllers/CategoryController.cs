@@ -1,10 +1,13 @@
 ﻿using ECom.Models.ViewModel;
 using ECom.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace ECom.Web.Controllers
+namespace ECom.Web.Areas.Admin.Controllers
 {
+    [Authorize]
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly ICategoryService categoryService;

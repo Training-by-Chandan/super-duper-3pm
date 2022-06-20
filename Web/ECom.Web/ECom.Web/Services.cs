@@ -11,6 +11,8 @@ namespace ECom.Web
 
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserRoleRepository, UserRoleRepository>();
 
             #endregion Repository
 
@@ -18,6 +20,7 @@ namespace ECom.Web
 
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IUserService, UserService>();
 
             #endregion Services
         }

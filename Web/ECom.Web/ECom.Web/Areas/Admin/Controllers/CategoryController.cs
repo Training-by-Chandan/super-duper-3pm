@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ECom.Web.Areas.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
     public class CategoryController : Controller
     {
@@ -16,7 +16,7 @@ namespace ECom.Web.Areas.Admin.Controllers
         {
             this.categoryService = categoryService;
         }
-
+       
         public IActionResult Index()
         {
             var data = categoryService.GetAll();

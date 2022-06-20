@@ -5,7 +5,7 @@ namespace ECom.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize("Admin")]
-    public class DashboardController : Controller
+    public class UserController : Controller
     {
         public IActionResult Index()
         {

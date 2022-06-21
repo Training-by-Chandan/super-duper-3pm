@@ -32,17 +32,10 @@ namespace ECom.Repository
                 return (false, ex.Message);
             }
         }
-
-        public string GetRoleId(string Name)
-        {
-            return db.Roles.FirstOrDefault(p => p.Name == Name).Id;
-        }
     }
 
     public interface IUserRepository
     {
         (bool, string) Create(IdentityUser user);
-
-        string GetRoleId(string Name);
     }
 }

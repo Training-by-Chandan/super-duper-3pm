@@ -1,4 +1,5 @@
-﻿using ECom.Models.Models;
+﻿using AutoMapper;
+using ECom.Models.Models;
 using ECom.Models.ViewModel;
 using ECom.Repository;
 using System;
@@ -25,10 +26,15 @@ namespace ECom.Services
     public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository categoryRepository;
+        private readonly IMapper mapper;
 
-        public CategoryService(ICategoryRepository categoryRepository)
+        public CategoryService(
+            ICategoryRepository categoryRepository,
+            IMapper mapper
+            )
         {
             this.categoryRepository = categoryRepository;
+            this.mapper = mapper;
         }
 
         public List<CategoryListViewModel> GetAll()
@@ -49,12 +55,8 @@ namespace ECom.Services
         {
             try
             {
-                var cat = new Category()
-                {
-                    Name = model.Name,
-                    Description = model.Description,
-                    CategoryId = model.CategoryId,
-                };
+                var cat = mapper.Map<CategoryCreateViewModel, Category>(model);
+
                 return categoryRepository.Create(cat);
             }
             catch (Exception ex)

@@ -13,6 +13,7 @@ namespace ECom.Models.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int? CategoryId { get; set; }
+        public bool Status { get; set; }
 
         [ForeignKey("CategoryId")]
         public virtual Category? ParentCategory { get; set; }

@@ -13,18 +13,22 @@ namespace ECom.Services
     {
         private readonly IUserRepository userRepository;
         private readonly IUserRoleRepository userRoleRepository;
+        private readonly IRoleRepository roleRepository;
 
         public UserService(
             IUserRepository userRepository,
-            IUserRoleRepository userRoleRepository
+            IUserRoleRepository userRoleRepository,
+            IRoleRepository roleRepository
             )
         {
             this.userRepository = userRepository;
             this.userRoleRepository = userRoleRepository;
+            this.roleRepository = roleRepository;
         }
 
-        public (bool, string) CreateUser(AdminUserViewModel model)
+        public (bool, string) CreateUser(AdminUserCreateViewModel model)
         {
+            var hasher = new PasswordHasher<IdentityUser>();
             //we will check if the user exists or not
             var identityUser = new IdentityUser()
             {
@@ -37,10 +41,11 @@ namespace ECom.Services
                 EmailConfirmed = true,
                 LockoutEnabled = false
             };
+            identityUser.PasswordHash = hasher.HashPassword(identityUser, model.Password);
             var res = userRepository.Create(identityUser);
             if (res.Item1)
             {
-                var roleId = userRepository.GetRoleId(model.Role.ToString());
+                var roleId = roleRepository.GetRoleId(model.Role.ToString());
 
                 var userRole = new IdentityUserRole<string>()
                 {
@@ -56,6 +61,6 @@ namespace ECom.Services
 
     public interface IUserService
     {
-        (bool, string) CreateUser(AdminUserViewModel model);
+        (bool, string) CreateUser(AdminUserCreateViewModel model);
     }
 }

@@ -3,20 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECom.Web", "ECom.Web\ECom.Web.csproj", "{0658F558-D43D-45B6-9BF1-5CFBEA4182CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECom.Web", "ECom.Web\ECom.Web.csproj", "{0658F558-D43D-45B6-9BF1-5CFBEA4182CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECom.Data", "ECom.Data\ECom.Data.csproj", "{F943DB44-75CC-4056-B9F5-5FC9C9DFD2DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECom.Data", "ECom.Data\ECom.Data.csproj", "{F943DB44-75CC-4056-B9F5-5FC9C9DFD2DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECom.Models", "Ecom.Models\ECom.Models.csproj", "{6BF8FAB4-4679-4726-9FCA-D394D72CC490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECom.Models", "Ecom.Models\ECom.Models.csproj", "{6BF8FAB4-4679-4726-9FCA-D394D72CC490}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECom.Repository", "ECom.Repository\ECom.Repository.csproj", "{DD59833A-D982-4274-99A3-14FF7344809F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECom.Repository", "ECom.Repository\ECom.Repository.csproj", "{DD59833A-D982-4274-99A3-14FF7344809F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECom.Services", "ECom.Services\ECom.Services.csproj", "{2638CB36-5C31-49AE-B7C3-1BCC8DCC5E3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECom.Services", "ECom.Services\ECom.Services.csproj", "{2638CB36-5C31-49AE-B7C3-1BCC8DCC5E3F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{296F6C23-927B-48EF-B657-4EE1D6B41DA7}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECom.Web.Api", "ECom.Web.Api\ECom.Web.Api.csproj", "{5F6969B0-1D5C-4F39-9230-20A4875F7CE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{2638CB36-5C31-49AE-B7C3-1BCC8DCC5E3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2638CB36-5C31-49AE-B7C3-1BCC8DCC5E3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2638CB36-5C31-49AE-B7C3-1BCC8DCC5E3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F6969B0-1D5C-4F39-9230-20A4875F7CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F6969B0-1D5C-4F39-9230-20A4875F7CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F6969B0-1D5C-4F39-9230-20A4875F7CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F6969B0-1D5C-4F39-9230-20A4875F7CE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

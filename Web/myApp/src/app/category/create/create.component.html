@@ -1,1 +1,22 @@
-<p>create works!</p>
+<form [formGroup]="form" (ngSubmit)="createCat()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea type="text" class="form-control" id="description" formControlName="description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="catId">Category Id</label>
+        <select class="form-control" id="catId" formControlName="categoryId">
+            <option *ngFor="let cat of catlist" value="{{cat.id}}">{{cat.name}}</option>
+        </select>
+    </div>
+    &nbsp;
+    <div class="form-group">
+        <button type="reset" class="btn btn-danger">Reset</button>
+        &nbsp;
+       <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>

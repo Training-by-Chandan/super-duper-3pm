@@ -1,1 +1,23 @@
-<p>list works!</p>
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category Id</th>
+                <th>Parent Category Name</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let cat of catlist">
+                    <td>{{cat.id}}</td>
+                    <td>{{cat.name}}</td>
+                    <td>{{cat.description}}</td>
+                    <td>{{cat.categoryId}}</td>
+                    <td>{{cat.parentCategoryName}}</td>
+                </tr>
+        </tbody>
+    </table>
+</div>
